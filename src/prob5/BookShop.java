@@ -20,7 +20,11 @@ public class BookShop {
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("대여 하고 싶은 책의 번호를 입력하세요:");
 		int num = scanner.nextInt();
-		books[num - 1].rent();
+		for (Book b : books) {
+			if (b.bookNo == num) {
+				b.rent();
+			}
+		}
 		scanner.close();
 
 		// 입력된 번호에 맞는 책을 찾아 대여 되었음(상태코드=0)을 체크 합니다.
