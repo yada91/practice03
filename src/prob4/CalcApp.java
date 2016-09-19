@@ -2,6 +2,8 @@ package prob4;
 
 import java.util.Scanner;
 
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
+
 public class CalcApp {
 
 	public static void main(String[] args) {
@@ -18,21 +20,31 @@ public class CalcApp {
 
 			int a = Integer.parseInt(str1[0]);
 			int b = Integer.parseInt(str1[2]);
-			calc.setValue(a, b);
 
 			switch (str1[1]) {
 			case "+":
-				calc.Add();
+				calc = new Add();
+				calc.setValue(a, b);
+				calc.calculate();
 				break;
 			case "-":
-				calc.Sub();
+				calc = new Sub();
+				calc.setValue(a, b);
+				calc.calculate();
 				break;
 			case "*":
-				calc.Mul();
+				calc = new Mul();
+				calc.setValue(a, b);
+				calc.calculate();
 				break;
 			case "/":
-				calc.Div();
+				calc = new Div();
+				calc.setValue(a, b);
+				calc.calculate();
 				break;
+
+			default:
+				System.out.println("생선자 오류");
 			}
 			System.out.println(calc.calculate());
 		}
