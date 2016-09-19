@@ -30,8 +30,8 @@ public class BookShop {
 	}
 
 	static void displayBookInfo(Book[] books) {
-		for (int i = 0; i < books.length; i++) {
-			books[i].print();
+		for (Book b : books) {
+			b.print();
 		}
 	}
 }
